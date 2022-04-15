@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	strChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" // 62 characters
+	strChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 )
 
 func init() {
@@ -20,15 +20,14 @@ func init() {
 	rand.Seed(int64(seed))
 }
 
-// Constructs an alphanumeric string of given length.
 func RandStr(length int) string {
 	chars := []byte{}
 MAIN_LOOP:
 	for {
 		val := rand.Int63()
 		for i := 0; i < 10; i++ {
-			v := int(val & 0x3f) // rightmost 6 bits
-			if v >= 62 {         // only 62 characters in strChars
+			v := int(val & 0x3f)
+			if v >= 62 {
 				val >>= 6
 				continue
 			} else {
@@ -76,7 +75,6 @@ func RandInt() int {
 	return rand.Int()
 }
 
-// Distributed pseudo-exponentially to test for various cases
 func RandUint16Exp() uint16 {
 	bits := rand.Uint32() % 16
 	if bits == 0 {
@@ -87,7 +85,6 @@ func RandUint16Exp() uint16 {
 	return n
 }
 
-// Distributed pseudo-exponentially to test for various cases
 func RandUint32Exp() uint32 {
 	bits := rand.Uint32() % 32
 	if bits == 0 {
@@ -98,7 +95,6 @@ func RandUint32Exp() uint32 {
 	return n
 }
 
-// Distributed pseudo-exponentially to test for various cases
 func RandUint64Exp() uint64 {
 	bits := rand.Uint32() % 64
 	if bits == 0 {
@@ -125,9 +121,6 @@ func RandBytes(n int) []byte {
 	return bs
 }
 
-// NOTE: This relies on the os's random number generator.
-// For real security, we should salt that with some seed.
-// See github.com/neatlib/crypto-go for a more secure reader.
 func cRandBytes(numBytes int) []byte {
 	b := make([]byte, numBytes)
 	_, err := crand.Read(b)

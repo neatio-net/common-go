@@ -5,7 +5,6 @@ import (
 	"strings"
 )
 
-// protoAddr: e.g. "tcp://127.0.0.1:8080" or "unix:///tmp/test.sock"
 func Connect(protoAddr string) (net.Conn, error) {
 	parts := strings.SplitN(protoAddr, "://", 2)
 	proto, address := parts[0], parts[1]

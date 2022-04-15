@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-// Sort for []uint64
+4
 
 type Uint64Slice []uint64
 
@@ -20,7 +20,6 @@ func SearchUint64s(a []uint64, x uint64) int {
 
 func (p Uint64Slice) Search(x uint64) int { return SearchUint64s(p, x) }
 
-//--------------------------------------------------------------------------------
 
 func PutUint64LE(dest []byte, i uint64) {
 	binary.LittleEndian.PutUint64(dest, i)

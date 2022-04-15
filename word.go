@@ -61,8 +61,6 @@ func Int64FromWord256(word Word256) int64 {
 	return GetInt64BE(buf)
 }
 
-//-------------------------------------
-
 type Tuple256 struct {
 	First  Word256
 	Second Word256

@@ -8,21 +8,6 @@ type Comparable interface {
 	Less(o interface{}) bool
 }
 
-//-----------------------------------------------------------------------------
-
-/*
-Example usage:
-	h := NewHeap()
-
-	h.Push(String("msg1"), 1)
-	h.Push(String("msg3"), 3)
-	h.Push(String("msg2"), 2)
-
-	fmt.Println(h.Pop())
-	fmt.Println(h.Pop())
-	fmt.Println(h.Pop())
-*/
-
 type Heap struct {
 	pq priorityQueue
 }
@@ -55,11 +40,6 @@ func (h *Heap) Pop() interface{} {
 	return item.value
 }
 
-//-----------------------------------------------------------------------------
-
-///////////////////////
-// From: http://golang.org/pkg/container/heap/#example__priorityQueue
-
 type pqItem struct {
 	value    interface{}
 	priority Comparable
@@ -91,7 +71,7 @@ func (pq *priorityQueue) Pop() interface{} {
 	old := *pq
 	n := len(old)
 	item := old[n-1]
-	item.index = -1 // for safety
+	item.index = -1
 	*pq = old[0 : n-1]
 	return item
 }

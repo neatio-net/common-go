@@ -25,7 +25,6 @@ func (pr *PrefixedReader) Read(p []byte) (n int, err error) {
 	}
 }
 
-// NOTE: Not goroutine safe
 type BufferCloser struct {
 	bytes.Buffer
 	Closed bool
