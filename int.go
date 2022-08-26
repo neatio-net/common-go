@@ -5,8 +5,6 @@ import (
 	"sort"
 )
 
-4
-
 type Uint64Slice []uint64
 
 func (p Uint64Slice) Len() int           { return len(p) }
