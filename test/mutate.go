@@ -1,7 +1,7 @@
 package test
 
 import (
-	. "github.com/neatio-network/common-go"
+	. "github.com/neatio-net/common-go"
 )
 
 func MutateByteSlice(bytez []byte) []byte {
